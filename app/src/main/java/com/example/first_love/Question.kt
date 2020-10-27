@@ -1,12 +1,9 @@
 package com.example.first_love
 
 data class Question (
-    val question: String,
-    val image: Int,
-    val optionOne: String,
-    val optionTwo: String,
-    val optionThree: String,
-    val scoreOne: Int,
-    val scoreTwo: Int,
-    val scoreThree: Int
+    var statement: String = "",
+    val optionOne: String = "",
+    val optionTwo: String = "",
+    val scoreOne: Int = 0,
+    val scoreTwo: Int = 0,
 )

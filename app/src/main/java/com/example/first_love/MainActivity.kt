@@ -16,8 +16,10 @@ class MainActivity : AppCompatActivity() {
         val startButton = findViewById<Button>(R.id.start_button)
         startButton.setOnClickListener {
             startActivity(Intent(this, PlayerNameActivity::class.java))
+            finish()
         }
 
     }
 
 }
+
