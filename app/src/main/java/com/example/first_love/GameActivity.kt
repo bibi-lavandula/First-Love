@@ -41,9 +41,9 @@ class GameActivity : AppCompatActivity() {
 
         nextButton.setOnClickListener {
 
-            //currentConversation++
+            currentConversation++
 
-            //loadConversation()
+            loadConversation()
 
             currentQuestion++
 
