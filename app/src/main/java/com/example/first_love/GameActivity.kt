@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.game_screen.*
 class GameActivity : AppCompatActivity() {
 
     lateinit var textDisplay: TextView
+    lateinit var endHeading: TextView
     lateinit var imageDisplay: ImageView
     lateinit var nextButton: Button
     lateinit var opOneButton: Button
@@ -176,16 +177,22 @@ class GameActivity : AppCompatActivity() {
 
     fun loadScore() {
         var totalScore = score1 + score2 + score3
+        endHeading = findViewById(R.id.finalHeading)
+
 
         if (totalScore >= 40){
             opOneButton.visibility = View.INVISIBLE
             opTwoButton.visibility = View.INVISIBLE
+            endHeading.visibility = View.VISIBLE
+            endHeading.text = "Congratulations!"
             textDisplay.text= "It has been a great 4 months as study buddy, for both Yuna and you. You finally tell Yuna how you feel about her and she said, yes."
             gameConstraintLayout.setBackgroundResource(R.drawable.first_background)
             imageDisplay.setImageResource(R.drawable.hahaha)
         } else {
             opOneButton.visibility = View.INVISIBLE
             opTwoButton.visibility = View.INVISIBLE
+            endHeading.visibility = View.VISIBLE
+            endHeading.text = "Too bad..."
             textDisplay.text= "It has been a long 4 months as study buddy, for both Yuna and you You finally tell Yuna how you feel about her and she rejected."
             gameConstraintLayout.setBackgroundResource(R.drawable.blue)
             imageDisplay.setImageResource(R.drawable.emotionless)
