@@ -6,7 +6,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
+import com.example.first_love.conversation.ConversationList
+import com.example.first_love.question.QuestionList
 import kotlinx.android.synthetic.main.game_screen.*
 
 class GameActivity : AppCompatActivity() {

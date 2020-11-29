@@ -1,4 +1,4 @@
-package com.example.first_love
+package com.example.first_love.conversation
 
 data class Conversation(
 
