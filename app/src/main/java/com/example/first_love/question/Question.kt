@@ -13,7 +13,7 @@ data class Question (
     val optionOne: String = "",
     @ColumnInfo(name = "option2")
     val optionTwo: String = "",
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     val id: Int? = null
 )
 

@@ -7,10 +7,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.first_love.conversation.ConversationList
+import com.example.first_love.question.Question
 import com.example.first_love.question.QuestionList
 import kotlinx.android.synthetic.main.game_screen.*
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class GameActivity : AppCompatActivity() {
+class GameActivity : AppCompatActivity(), CoroutineScope {
+
+    private lateinit var job: Job
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
 
     lateinit var textDisplay: TextView
     lateinit var endHeading: TextView
@@ -18,27 +25,61 @@ class GameActivity : AppCompatActivity() {
     lateinit var nextButton: Button
     lateinit var opOneButton: Button
     lateinit var opTwoButton: Button
+    private lateinit var db : QuestionDatabase
 
-    val conversationList = ConversationList.getConversation()
+    var questionList : QuestionList? = null
+
     var click = 0
-    val questionList = QuestionList.getQuestion()
     var nextQuestion = 0
     var conversation = 0
     var score1 = 0
     var score2 = 0
     var score3 = 0
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_screen)
-
-        //val playerName = intent.getStringExtra("Player Name")
 
         imageDisplay = findViewById(R.id.mImageView)
         textDisplay = findViewById(R.id.conversationTextView)
         nextButton = findViewById(R.id.nextButton)
         opOneButton = findViewById(R.id.op_OneButton)
         opTwoButton = findViewById(R.id.op_TwoButton)
+
+        db = QuestionDatabase.getInstance(this)
+
+        loadquestion()
+
+
+
+}
+
+    fun loadquestion(question: Question) {
+
+        val questions = async(Dispatchers.IO) {
+            db.questionDao().getAll()
+        }
+
+        launch {
+            val list = questions.await().toTypedArray()
+            questionList = QuestionList()
+        }
+
+    }
+
+
+/*
+
+
+    val conversationList = ConversationList.getConversation()
+
+    val questionList = QuestionList.getQuestion()
+
+
+
+
+        //val playerName = intent.getStringExtra("Player Name")
 
 
         loadConversation(0) //click == 0
@@ -198,10 +239,7 @@ class GameActivity : AppCompatActivity() {
             gameConstraintLayout.setBackgroundResource(R.drawable.blue)
             imageDisplay.setImageResource(R.drawable.emotionless)
         }
-
-
-
-    }
+        */
 
 
 

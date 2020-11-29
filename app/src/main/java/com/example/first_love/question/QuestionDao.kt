@@ -7,15 +7,15 @@ import com.example.first_love.question.Question
 interface QuestionDao {
 
     @Insert
-    fun insert (question: Question)
+    suspend fun insert (question: Question)
 
     @Query("SELECT * FROM question_table")
-    fun getAll(): List<Question>
+    suspend fun getAll(): List<Question>
 
     @Delete
-    fun delete (question: Question)
+    suspend fun delete (question: Question)
 
     @Update
-    fun update (question: Question)
+    suspend fun update (question: Question)
 
 }
