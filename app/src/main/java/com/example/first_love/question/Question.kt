@@ -5,7 +5,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity (tableName = "question_table")
-
 data class Question (
     @ColumnInfo(name = "statement")
     var statement: String = "",

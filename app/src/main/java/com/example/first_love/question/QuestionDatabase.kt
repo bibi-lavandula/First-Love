@@ -33,10 +33,7 @@ abstract class QuestionDatabase : RoomDatabase() {
                 }
                 return instance
             }
-
-
-
-
         }
     }
 }
+
