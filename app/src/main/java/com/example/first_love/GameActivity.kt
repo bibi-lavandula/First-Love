@@ -50,6 +50,8 @@ class GameActivity : AppCompatActivity(), CoroutineScope {
 
         db = QuestionDatabase.getInstance(this)
 
+        loadConversation(0)
+
         initQuestionListInDB()
         listener()
         initLocalList()
