@@ -1,4 +1,6 @@
-package com.example.first_love
+package com.example.first_love.conversation
+
+import com.example.first_love.R
 
 object ConversationList {
 

@@ -1,8 +1,11 @@
-package com.example.first_love
+package com.example.first_love.question
 
-object QuestionList {
+import com.example.first_love.question.Question
+import com.example.first_love.question.QuestionDao
 
-    fun getQuestion(): ArrayList<Question> {
+class QuestionList {
+
+    fun loadQuestion(): ArrayList<Question> {
 
         val questionArrayList = ArrayList<Question>()
 
@@ -10,44 +13,34 @@ object QuestionList {
             "You know that the study buddy program will affect both your grades. What would you say to Yuna?",
             "Study buddy? OK, what do we do?",
             "Why would I need a study buddy?",
-            20,
-            10,
         )
         questionArrayList.add(que000)
 
         val que001 = Question(
             "You see Yuna's happy face as you keep your promise to meet her at the library. How would you response?",
             "Don't overreact. Jeez.",
-            "It is because you need me.",
-            10,
-            20,
+            "It is because you need me."
         )
         questionArrayList.add(que001)
 
         val que002 = Question(
             "You don't expect to see Yuna here. You understand that it can be dangerous sometimes. What would you do now?",
             "Ignore her and eventually she will leave.",
-            "Walk her home immediately.",
-            10,
-            20,
+            "Walk her home immediately."
         )
         questionArrayList.add(que002)
 
         val que003 = Question(
             "You are grateful inside that Yuna treats you equally like others and not afraid of you. What would you say?",
             "Well, I don't mind.",
-            "You know I am forced to accept.",
-            20,
-            10,
+            "You know I am forced to accept."
         )
         questionArrayList.add(que003)
 
         val que004 = Question(
             "You know that Yuna is kind-hearted but you are the infamous bad student. How would you response?",
             "Hope you will not regret later.",
-            "I will, for us.",
-            10,
-            20,
+            "I will, for us."
         )
         questionArrayList.add(que004)
 
@@ -55,5 +48,4 @@ object QuestionList {
         return questionArrayList
 
     }
-
 }
